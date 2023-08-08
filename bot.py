@@ -1,6 +1,6 @@
 import logging
 import logging.config
-from pyrogram import Client 
+from pyrogram import Client
 from pyrogram import Client, __version__
 from pyrogram.raw.all import layer
 from config import Config
@@ -22,9 +22,9 @@ class Bot(Client):
             api_id=Config.API_ID,
             api_hash=Config.API_HASH,
             bot_token=Config.BOT_TOKEN,
-            workers=50,
+            workers=200,
             plugins={"root": "plugins"},
-            sleep_threshold=5,
+            sleep_threshold=15,
         )
 
     async def start(self):
@@ -46,9 +46,13 @@ class Bot(Client):
         bind_address = "0.0.0.0"
         await web.TCPSite(app, bind_address, Config.PORT).start()
         logging.info(f"{me.first_name} ✅✅ BOT started successfully ✅✅")
+
         for id in Config.ADMIN:
-            try: await self.send_message(id, f"**__{me.first_name}  Iꜱ Sᴛᴀʀᴛᴇᴅ.....✨️__**")                                
-            except: pass
+            try:
+                await self.send_message(id, f"**__{me.first_name}  Iꜱ Sᴛᴀʀᴛᴇᴅ.....✨️__**")
+            except:
+                pass
+
         if Config.LOG_CHANNEL:
             try:
                 curr = datetime.now(timezone("Asia/Kolkata"))
