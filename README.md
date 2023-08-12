@@ -67,4 +67,7 @@ del_caption - Delete Custom Caption
 restart - To Rrstart The Bot (Admin Only)
 status - Check Bot Status (Admin Only)
 broadcast - Send Message To All Users (Admin Only)
+ban_user - [user_id][ban_duration][ban_reason] Ban any user [Owner Only]
+unban_user - [user_id] Unban any user [Owner Only]
+banned_users - Get all Banned  Users [Owner Only]
 ```
