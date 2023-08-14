@@ -18,13 +18,7 @@ class Database:
             caption=None,
             prefix=None,
             suffix=None,
-            doc_type=None,
-            ban_status=dict(
-                is_banned=False,
-                ban_duration=0,
-                banned_on=datetime.date.max.isoformat(),
-                ban_reason=''
-            )
+            doc_type=None
         )
 
     async def add_user(self, b, m):
